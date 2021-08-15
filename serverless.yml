@@ -17,7 +17,7 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: rs-gennady-react-automated
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
 
@@ -71,7 +71,7 @@ resources:
           Origins:
             - DomainName: !GetAtt WebAppS3Bucket.RegionalDomainName
               ## An identifier for the origin which must be unique within the distribution
-              Id: myS3Origin
+              Id: rs-gennady-react-automated
               ## In case you don't want to restrict the bucket access use CustomOriginConfig and remove S3OriginConfig
               S3OriginConfig:
                 OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${OriginAccessIdentity}
@@ -106,7 +106,7 @@ resources:
               Cookies:
                 Forward: none
             ## The origin id defined above
-            TargetOriginId: myS3Origin
+            TargetOriginId: rs-gennady-react-automated
             ## The protocol that users can use to access the files in the origin. To allow HTTP use `allow-all`
             ViewerProtocolPolicy: redirect-to-https
             Compress: true
